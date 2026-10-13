@@ -1,6 +1,6 @@
 {
   "name": "utf-16-bom-handler",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Detects, adds, and removes byte order marks and converts between UTF-16LE and UTF-16BE.",
   "type": "module",
   "main": "src/index.js",
