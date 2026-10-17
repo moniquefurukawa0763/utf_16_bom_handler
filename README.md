@@ -32,3 +32,10 @@ The trade-off: `leToBe` and `beToLe` always emit a BOM on the output. If you nee
 ## Exports
 
 `isUtf16LeBom(data)`, `isUtf16BeBom(data)`, `hasBom(data)`, `detectBom(data)`, `addBom(data, bom)`, `removeBom(data)`, `swapByteOrder(data)`, `leToBe(data)`, `beToLe(data)` — every function takes a `Uint8Array` and returns a `Uint8Array` (or, for the detectors, a boolean / `'utf-16le' | 'utf-16be' | null`).
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
